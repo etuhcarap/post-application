@@ -15,13 +15,13 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter
 	private Long id;
 
 	@Column
@@ -32,7 +32,6 @@ public class Post {
 
 	@CreatedDate
 	@Column(nullable = false, updatable = false)
-	@Getter
 	LocalDateTime createdAt;
 
 	public Post(String title, String content) {
